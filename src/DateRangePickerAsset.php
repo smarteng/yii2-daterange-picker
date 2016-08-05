@@ -4,7 +4,7 @@
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
-namespace dosamigos\datepicker;
+namespace jerryteng\daterangepicker;
 
 use yii\web\AssetBundle;
 
@@ -18,14 +18,16 @@ use yii\web\AssetBundle;
  */
 class DateRangePickerAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-date-picker-widget/src/assets';
+    public $sourcePath = '@vendor/smarteng/yii2-daterange-picker/src/assets';
 
     public $css = [
-        'css/bootstrap-daterangepicker.css'
+        'dateRange.css'
     ];
-
+    public $js = [
+        'dateRange.js'
+    ];
     public $depends = [
-        'dosamigos\datepicker\DatePickerAsset'
+        'yii\web\JqueryAsset',
     ];
 
 }

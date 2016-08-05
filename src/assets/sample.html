@@ -1,0 +1,339 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<head>
+		<title>DatePicker Demo</title>
+		<script type="text/javascript" src="./jquery.min.js"></script>
+		<script type="text/javascript" src="./dateRange.js"></script>
+		<link rel="stylesheet" type="text/css" href="./dateRange.css"/>
+		<style type="text/css">
+			::selection {
+				background-color: #E13300;
+				color: white;
+			}
+			::moz-selection {
+				background-color: #E13300;
+				color: white;
+			}
+			::webkit-selection {
+				background-color: #E13300;
+				color: white;
+			}
+			body {
+				background-color: #fff;
+				margin: 40px;
+				font: 12px     /20px normal Helvetica, Arial, sans-serif;
+				color: #4F5155;
+			}
+			a {
+				color: #003399;
+				background-color: transparent;
+				font-weight: normal;
+			}
+			input {
+				color: #333333;
+				font: 12px /1.5 Tahoma, Helvetica, 'SimSun', sans-serif;
+			}
+			code {
+				font-family: Consolas, Monaco, Courier New, Courier, monospace;
+				font-size: 12px;
+				background-color: #f9f9f9;
+				border: 1px solid #D0D0D0;
+				color: #002166;
+				display: block;
+				margin: 14px 0 14px 0;
+				padding: 12px 10px 12px 10px;
+			}
+			h1 {
+				color: #444;
+				background-color: transparent;
+				border-bottom: 1px solid #D0D0D0;
+				font-size: 19px;
+				font-weight: normal;
+				margin: 0 0 14px 0;
+				padding: 14px 15px 10px 15px;
+			}
+			.wrapper {
+				margin: 0 15px 0 15px;
+			}
+			
+		</style>
+	</head>
+
+	<body bgcolor="white" text="black">
+		<h1>DatePicker Demo</h1>
+		<div class="wrapper">
+			<!-- calendar demo1 :start -->
+			<h4>一、区间时间段的选择：</h4>
+			<div id="dCon_demo1">
+				开始时间 : 2015-10-15
+				<br/>
+				结束时间 : 2015-11-11
+				<br/>
+			</div>
+			<!-- 这个区域的面板触发结构完全交由业务系统自己来定义 -->
+			<div class="ta_date" id="div_date_demo1">
+                <span class="date_title" id="date_demo1"></span>
+                <a class="opt_sel" id="input_trigger_demo1" href="#">
+                    <i class="i_orderd"></i>
+                </a>
+            </div>
+   			<br/>
+			<script type="text/javascript">
+				var dateRange = new pickerDateRange('date_demo1', {
+					isTodayValid : true,
+					startDate : '2015-10-15',
+					endDate : '2015-11-11',
+					defaultText : ' 至 ',
+					stopToday:false,
+					inputTrigger : 'input_trigger_demo1',
+					success : function(obj) {
+						$("#dCon_demo1").html('开始时间 : ' + obj.startDate + '<br/>结束时间 : ' + obj.endDate);
+					}
+				});
+
+			</script>
+			<br/>
+			<p>
+				示例代码：(更多参数，参见用户手册)
+			</p>
+			<code>
+				&lt;script type="text/javascript"&gt;
+				<br/>
+				var dateRange = new pickerDateRange('date', {
+				<br/>
+				<strong style="color:red">isTodayValid : true,</strong>
+				<br/>
+				<strong style="color:red">stopToday : true,</strong>
+				<br/>
+				startDate : '2015-10-15',
+				<br/>
+				endDate : '2015-11-11',
+				<br/>
+				defaultText : ' 至 ',
+				<br/>
+				inputTrigger : 'input_trigger_demo1', //这个结构完全由业务系统自己定义
+				<br/>
+				success : function(obj) {
+				<br/>
+				//设置回调句柄
+				<br/>
+				}
+				<br/>
+				});
+				<br/>
+				&lt;/script&gt;
+				<br/>
+			</code>
+			<!-- calendar demo1 :end -->
+
+			<!-- calendar demo2 :start -->
+			<h4>二、单天快捷选择：</h4>
+			<div id="dCon_demo2">
+				开始时间 : 2015-11-15
+				<br/>
+				结束时间 : 2015-11-15
+				<br/>
+			</div>
+			<!-- 这个区域的面板触发结构完全交由业务系统自己来定义 -->
+			<div class="ta_date" id="div_date_demo2">
+                <span class="date_title" id="date_demo2"></span>
+                <a class="opt_sel" id="input_trigger_demo2" href="#">
+                    <i class="i_orderd"></i>
+                </a>
+            </div>
+   			<br/>
+			<script type="text/javascript">
+				var dateRange = new pickerDateRange('date_demo2', {
+					isTodayValid : true,
+					startDate : '2015-11-15',
+					endDate : '2015-11-15',
+					isSingleDay : true,
+					shortOpr : true,
+					autoSubmit:true,
+					defaultText : ' 至 ',
+					inputTrigger : 'input_trigger_demo2',
+					success : function(obj) {
+						$("#dCon_demo2").html('开始时间 : ' + obj.startDate + '<br/>结束时间 : ' + obj.endDate);
+					}
+				});
+
+			</script>
+			<br/>
+			<p>
+				示例代码：(更多参数，参见用户手册)
+			</p>
+			<code>
+				&lt;script type="text/javascript"&gt;
+				<br/>
+				var dateRange = new pickerDateRange('date', {
+				<br/>
+				isTodayValid : true,
+				<br/>
+				startDate : '2015-11-15',
+				<br/>
+				endDate : '2015-11-15',
+				<br/>
+				defaultText : ' 至 ',
+				<br/>
+				<strong style="color:red">isSingleDay : true,</strong>
+				<br/>
+				<strong style="color:red">shortOpr : true,</strong>
+				<br/>
+				<strong style="color:red">autoSubmit:true,</strong>
+				<br/>
+				shortOpr : true,
+				<br/>
+				inputTrigger : 'input_trigger_demo2', //这个结构完全由业务系统自己定义
+				<br/>
+				success : function(obj) {
+				<br/>
+				//设置回调句柄
+				<br/>
+				}
+				<br/>
+				});
+				<br/>
+				&lt;/script&gt;
+				<br/>
+			</code>
+
+			<!-- calendar demo2 :end -->
+
+			<!-- calendar demo3 :start -->
+			<h4>三、单选周期性日期不可选择：</h4>
+			<div id="dCon_demo3">
+				开始时间 : 2015-11-13
+				<br/>
+				结束时间 : 2015-11-13
+				<br/>
+			</div>
+			<!-- 这个区域的面板触发结构完全交由业务系统自己来定义 -->
+			<div class="ta_date" id="div_date_demo3">
+                <span class="date_title" id="date_demo3"></span>
+                <a class="opt_sel" id="input_trigger_demo3" href="#">
+                    <i class="i_orderd"></i>
+                </a>
+            </div>
+   			<br/>
+			<script type="text/javascript">
+				var dateRange = new pickerDateRange('date_demo3', {
+					isTodayValid : true,
+					startDate : '2015-11-13',
+					endDate : '2015-11-13',
+					isSingleDay : true,
+					shortOpr : true,					
+					disCertainDate : [5,15,25],
+					defaultText : ' 至 ',
+					inputTrigger : 'input_trigger_demo3',
+					success : function(obj) {
+						$("#dCon_demo3").html('开始时间 : ' + obj.startDate + '<br/>结束时间 : ' + obj.endDate);
+					}
+				});
+
+			</script>
+			<br/>
+			<p>
+				示例代码：(更多参数，参见用户手册)
+			</p>
+			<code>
+				&lt;script type="text/javascript"&gt;
+				<br/>
+				var dateRange = new pickerDateRange('date', {
+				<br/>
+				isTodayValid : true,
+				<br/>
+				startDate : '2015-11-15',
+				<br/>
+				endDate : '2015-11-15',
+				<br/>
+				defaultText : ' 至 ',
+				<br/>
+				isSingleDay : true,
+				<br/>
+				<strong style="color:red">disCertainDate : [5,15,25],</strong> //每月5，15，25日不可选
+				<br/>
+				inputTrigger : 'input_trigger_demo3', //这个结构完全由业务系统自己定义
+				<br/>
+				success : function(obj) {
+				<br/>
+				//设置回调句柄
+				<br/>
+				}
+				<br/>
+				});
+				<br/>
+				&lt;/script&gt;
+				<br/>
+			</code>
+
+			<!-- calendar demo2 :end -->
+
+
+			<!-- calendar demo4 :start -->
+			<h4>四、自定义时间段选择：</h4>
+			<div id="dCon_demo4">
+				开始时间 : 2015-10-13
+				<br/>
+				结束时间 : 2015-11-13
+				<br/>
+			</div>
+			<!-- 这个区域的面板触发结构完全交由业务系统自己来定义 -->
+			<div class="ta_date" id="div_date_demo4">
+                <span class="date_title" id="date_demo4"></span>
+                <a class="opt_sel" id="input_trigger_demo4" href="#">
+                    <i class="i_orderd"></i>
+                </a>
+            </div>
+   			<br/>
+			<script type="text/javascript">
+				var dateRange = new pickerDateRange('date_demo4', {
+					isTodayValid : true,
+					startDate : '2015-10-13',
+					endDate : '2015-11-13',
+					magicSelect : true,
+					defaultText : ' 至 ',
+					inputTrigger : 'input_trigger_demo4',
+					success : function(obj) {
+						$("#dCon_demo4").html('开始时间 : ' + obj.startDate + '<br/>结束时间 : ' + obj.endDate);
+					}
+				});
+
+			</script>
+			<br/>
+			<p>
+				示例代码：(更多参数，参见用户手册)
+			</p>
+			<code>
+				&lt;script type="text/javascript"&gt;
+				<br/>
+				var dateRange = new pickerDateRange('date', {
+				<br/>
+				isTodayValid : true,
+				<br/>
+				startDate : '2015-11-15',
+				<br/>
+				endDate : '2015-11-15',
+				<br/>
+				defaultText : ' 至 ',
+				<br/>
+				<strong style="color:red">magicSelect : true,</strong>
+				<br/>
+				inputTrigger : 'input_trigger_demo4', //这个结构完全由业务系统自己定义
+				<br/>
+				success : function(obj) {
+				<br/>
+				//设置回调句柄
+				<br/>
+				}
+				<br/>
+				});
+				<br/>
+				&lt;/script&gt;
+				<br/>
+			</code>
+
+			<!-- calendar demo4 :end -->
+		</div>
+	</body>
+</html>

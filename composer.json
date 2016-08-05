@@ -24,14 +24,14 @@
         "source": "https://github.com/smarteng/yii2-daterange-picker"
     },
     "require": {
-        "yiisoft/yii2": ">=2.0.9",
+        "yiisoft/yii2": ">=2.0.9"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*"
     },
     "autoload": {
         "psr-4": {
-            "jerryteng\\datepicker\\": "src"
+            "jerryteng\\daterangepicker\\": "src"
         }
     },
     "extra": {

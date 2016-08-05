@@ -5,7 +5,7 @@ yii2-daterange-picker
 ```
 use jerryteng\daterangepicker\DateRangePicker;
 echo DateRangePicker::widget([
-        'id'=>'xxd',
+        'id'=>'filtertime',
         'options' => array(
             'isTodayValid'=> true,
             'startDate' =>'',
@@ -14,13 +14,13 @@ echo DateRangePicker::widget([
             'autoSubmit'=>true,
             'defaultText'=>'/',
             //'inputTrigger'=>'input_trigger_demo4',
-            'success'=>"js:function(obj) { $('#filtertime').val(obj.startDate + '/' + obj.endDate).change(); }"
+            'success'=>"function(obj) { $('#filtertime').val(obj.startDate + '/' + obj.endDate).change(); }"
         )
     ]);
 ```
 
 ```
 <div>
-    <input type="text" id="xxd">
+    <input type="text" id="filtertime">
 </div>
 ```

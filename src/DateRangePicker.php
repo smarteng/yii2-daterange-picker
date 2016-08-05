@@ -39,7 +39,7 @@ class DateRangePicker extends Widget
 
         $key = __CLASS__ . '#' . $this->id;
         $this->options['success'] =  new JsExpression($this->options['success']);
-        
+
         $jsOptions = Json::encode($this->options);
         $javascript = "var dateRange = new pickerDateRange('".$this->id."', ".$jsOptions.");";
         $this->view->registerJs($javascript, View::POS_READY, $key);

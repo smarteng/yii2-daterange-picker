@@ -1,6 +1,6 @@
 <?php
 namespace jerryteng\daterangepicker;
-
+use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -36,6 +36,7 @@ class DateRangePicker extends Widget
     public function registerAssets()
     {
         $view = $this->getView();
+        Yii::$app->getAssetManager()->publish(\Yii::getAlias('@vendor').'/smarteng/yii2-daterange-picker/src/assets');
         DateRangePickerAsset::register($view);
 
         $key = __CLASS__ . '#' . $this->id;
